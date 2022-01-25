@@ -4,12 +4,20 @@
 
 import { View, Button, StyleSheet } from "react-native";
 import ChatForm from "./ChatForm";
+import {useState, useEffect} from "react";
 
-function ChatInput(){
+function ChatInput({submitNewMessage}){
+  const [GIFWindow, setGIFWindow] = useState(false);
+
+  function handleGIFButton(){
+    setGIFWindow(true);
+  }
+
   return (
     <View style={styles.container}>
-      <ChatForm/>
-      <Button title="GIF" style={styles.GIFButton}></Button>
+      <ChatForm submitNewMessage={submitNewMessage}/>
+      <Button style={styles.GIFButton} title="GIF" onPress={handleGIFButton}></Button>
+      {(GIFWindow) ? <GIFWindow submitNewMessage={submitNewMessage}/> : null}
     </View>
   )
 }

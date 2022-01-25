@@ -1,19 +1,30 @@
+import { View, TextInput, StyleSheet, Keyboard } from "react-native";
+import React, { useState } from 'react';
+
 /**
  * Component for chat input
  */
 
-import { View, TextInput, StyleSheet, Keyboard } from "react-native";
-import React, { useState } from 'react';
+const emptyForm = '';
 
-function ChatForm(){
-  const [message, setMessage] = useState('');
+function ChatForm({submitNewMessage}){
+  const [message, setMessage] = useState(emptyForm);
+
+  function handleSubmit(){
+    submitNewMessage(message);
+    setMessage(emptyForm);
+  }
+
   return (
     <View style={styles.container}>
       <TextInput autoCapitalize='sentences' style={StyleSheet.textInput}
       placeholder="Message Group"
+      value={message}
       maxLength={50}
       onBlur={Keyboard.dismiss}
-      onChangeText={message => setMessage(message)}/>
+      onChangeText={m => setMessage(m)}
+      onSubmitEditing={handleSubmit}
+      />
     </View>
   )
 }

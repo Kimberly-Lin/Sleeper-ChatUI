@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import uuid from 'react-native-uuid';
 
@@ -7,16 +8,19 @@ const DEFAULT_AVATAR = require('./assets/default_avatar.png')
  * 
 */
 
-function MessageCards({avatar=DEFAULT_AVATAR, name, messages, timestamp}){
+function MessageCards({avatar=DEFAULT_AVATAR, name, messages}){
+  let currTime = _addZero(new Date().getHours()) + " : " + _addZero(new Date().getMinutes());
+
+  // const [messages, setMessages] = useState(messages);
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Image source={avatar} style={styles.avatar}></Image>
         <Text style = {styles.name}>{name}</Text>
-        <Text style={styles.timestamp}>{timestamp}</Text>
+        <Text style={styles.timestamp}>{currTime}</Text>
       </View>
-      {messages.map((message)=><Text style={styles.message} id={uuid.v4()}>{message}</Text>)}
+      {messages.map((message)=><Text style={styles.message} key={uuid.v4()}>{message}</Text>)}
     </View>
   )
 }
@@ -49,5 +53,10 @@ const styles = StyleSheet.create({
     fontSize:25,
   }
 })
+
+function _addZero(i) {
+  if (i < 10) i = "0" + i;
+  return i;
+}
 
 export default MessageCards;

@@ -2,19 +2,31 @@ import { ScrollView, SafeAreaView,StyleSheet, Text, View, KeyboardAvoidingView }
 import ChatInput from './ChatInput';
 import ChatTitle from './ChatTitle';
 import MessageCards from './MessageCards';
+import { useState } from 'react';
 
-export default function App() {
-  let currTime = new Date().getHours() + " : " + new Date().getMinutes();
+const initialMessages=[];
+
+function App() {
+  const [messages, setMessages] = useState(initialMessages);
+
+  function submitNewMessage(msg){
+    setMessages(messages=>([...messages,msg]))
+  }
 
   return (
     <SafeAreaView style={styles.container}>
-      <ChatTitle title='Sleeper Chat'/>
-      <ScrollView style={styles.messageBox}>
-        <MessageCards avatar={require('./assets/rhea.jpg')} name='Rhea' messages={['hello', 'this is', 'Rhea']} timestamp={currTime}/>
-      </ScrollView>
-      <View style={styles.chatInput}>
-        <ChatInput/>
-      </View>
+      <KeyboardAvoidingView>
+        <ChatTitle title='Sleeper Chat'/>
+        <ScrollView style={styles.messageBox}>
+          <MessageCards 
+            avatar={require('./assets/rhea.jpg')} 
+            name='Rhea' 
+            messages={messages}/>
+        </ScrollView>
+        <View style={styles.chatInput}>
+          <ChatInput submitNewMessage={submitNewMessage}/>
+        </View>
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 }
@@ -37,3 +49,5 @@ const styles = StyleSheet.create({
     height:50,
   }
 });
+
+export default App;
