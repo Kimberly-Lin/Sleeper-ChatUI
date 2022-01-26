@@ -11,13 +11,18 @@ function ChatInput({submitNewMessage}){
   const [needGIFWindow, setNeedGIFWindow] = useState(false);
 
   function handleGIFButton(){
-    setNeedGIFWindow(true);
+    setNeedGIFWindow(!needGIFWindow);
+  }
+
+  function submitGif(gif){
+    submitNewMessage(`gif${gif}`);
+    setNeedGIFWindow(false);
   }
 
   return (
     <View style={styles.outerContainer}>
       {needGIFWindow
-        ? <GifWindow submitNewMessage={submitNewMessage}/>
+        ? <GifWindow submitGif={submitGif}/>
         : null}
       <View style={styles.container}>
         <ChatForm submitNewMessage={submitNewMessage}/>

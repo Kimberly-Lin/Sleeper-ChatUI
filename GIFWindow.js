@@ -62,7 +62,7 @@ const TEMP_GIFS = [
   "https://media3.giphy.com/media/J6ctgPvnDpDi0/giphy.gif",
 ]
 
-function GifWindow({submitNewMessage}){
+function GifWindow({submitGif}){
   /**Using temporary gifs to avoid making too may API calls while working on other features */
   const [gifs, setGifs] = useState(TEMP_GIFS);
   const [needGifs, setNeedGifs] = useState(true);
@@ -87,10 +87,14 @@ function GifWindow({submitNewMessage}){
   //   [needGifs]
   // );
   // console.log(gifs)
+  function handleGif(gif){
+    submitGif(gif);
+  }
+
   return (
     <ScrollView style={styles.container} horizontal={true}>
       {gifs.map(gif=>
-        <TouchableOpacity key={uuid.v4()} onPress={submitNewMessage}>
+        <TouchableOpacity key={uuid.v4()} onPress={()=>handleGif(gif)}>
           <Image style={styles.image} source={{uri:gif}}></Image>
         </TouchableOpacity>
       )}
