@@ -24,8 +24,6 @@ Please note, app was built using Expo and developed using iOS simulator only.
 Once the server has started, press i for iOS simulator using XCode or scan QR code with Expo Go app
 on your phone to run on the phone.
 
-When using the iOS simulator on XCode, host machine's keyboard can be turned off by pressing cmd+shift+K
-
 ## If I had more time:
 - WRITE TESTS!!!
 - Figure out how to load .env variables on React Native to save GIPHY API Key
