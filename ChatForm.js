@@ -7,11 +7,11 @@ import React, { useState } from 'react';
 
 const emptyForm = '';
 
-function ChatForm({submitNewMessage}){
+function ChatForm({receiveMessage}){
   const [message, setMessage] = useState(emptyForm);
 
   function handleSubmit(){
-    submitNewMessage(message);
+    receiveMessage('rhea',message);
     setMessage(emptyForm);
   }
 

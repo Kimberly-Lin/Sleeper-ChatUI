@@ -7,15 +7,15 @@ import ChatForm from "./ChatForm";
 import {useState, useEffect} from "react";
 import GifWindow from "./GifWindow";
 
-function ChatInput({submitNewMessage}){
+function ChatInput({receiveMessage}){
   const [needGIFWindow, setNeedGIFWindow] = useState(false);
-
+  
   function handleGIFButton(){
     setNeedGIFWindow(!needGIFWindow);
   }
 
   function submitGif(gif){
-    submitNewMessage(`gif${gif}`);
+    receiveMessage('rhea',`gif${gif}`);
     setNeedGIFWindow(false);
   }
 
@@ -25,7 +25,7 @@ function ChatInput({submitNewMessage}){
         ? <GifWindow submitGif={submitGif}/>
         : null}
       <View style={styles.container}>
-        <ChatForm submitNewMessage={submitNewMessage}/>
+        <ChatForm receiveMessage={receiveMessage}/>
         <Button style={styles.GIFButton} title="GIF" onPress={handleGIFButton}></Button>
       </View>
     </View>
