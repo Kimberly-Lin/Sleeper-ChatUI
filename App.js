@@ -18,7 +18,7 @@ function App() {
       <KeyboardAvoidingView>
         <ChatTitle title='Sleeper Chat'/>
         <ScrollView style={styles.messageBox}>
-          <MessageCards 
+          <MessageCards
             avatar={require('./assets/rhea.jpg')} 
             name='Rhea' 
             messages={messages}/>

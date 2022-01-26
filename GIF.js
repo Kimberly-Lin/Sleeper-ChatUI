@@ -1,11 +1,13 @@
+import {TouchableOpacity, Image} from 'react-native'
+
 /** Individual clickable GIF component */
 
-function GIF({submitNewMessage, imgSource}){
+function Gif({submitNewMessage, imgSource}){
   return (
     <TouchableOpacity onPress={submitNewMessage}>
-      <Image source={imgSource}></Image>
+      <Image source={{uri:imgSource}}></Image>
     </TouchableOpacity>
   )
 }
 
-export default GIF;
+export default Gif;
