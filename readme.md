@@ -20,6 +20,7 @@ Please note, app was built using Expo and developed using iOS simulator only.
     $ expo start
     ```
 3. Emulator
+
 Once the server has started, press i for iOS simulator using XCode or scan QR code with Expo Go app
 on your phone to run on the phone.
 
@@ -29,6 +30,7 @@ on your phone to run on the phone.
 - Could use the useMemo hook to memoize the gif urls (need to determine how often to refresh)
 - Can perhaps save gifs as temporary files for the day and load locally to reduce
   loading time. However, this would take extra memory
+- Figure out a better way to mock messages from other users
 - Currently gifs are denoted by having 'gif' at the start of message strings, but
 this is an issue since an actual message starting with gif will not be sent as 
 a regular message
