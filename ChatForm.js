@@ -1,8 +1,12 @@
 import { View, TextInput, StyleSheet, Keyboard } from "react-native";
 import React, { useState } from 'react';
 
-/**
- * Component for chat input
+/** Component for entering chat message
+ * 
+ * props: receiveMessage fn
+ * state: needGIFWindow
+ * 
+ * ChatInput -> ChatForm -> N/A
  */
 
 const emptyForm = '';

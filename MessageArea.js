@@ -1,7 +1,7 @@
 import { ScrollView, StyleSheet} from "react-native";
-import MessageCards from "./MessageCards";
 import uuid from 'react-native-uuid';
 
+import MessageCards from "./MessageCards";
 
 const USERS = {
   "rhea":{
@@ -15,14 +15,21 @@ const USERS = {
     name:"MockingJay"
   }
 }
+
 /** Area to display messages
  * 
+ * props: nessageBlocks
+ * state: N/A
+ * 
+ * App -> MessageArea -> MessageCards
  */
 
 function MessageArea({messageBlocks}){
 
   return(
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container}
+      ref={ref => {this.scrollView = ref}}
+      onContentSizeChange={() => this.scrollView.scrollToEnd({animated: true})}>
       {messageBlocks.map(
         function(messageBlock){
           let user = messageBlock.user;

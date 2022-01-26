@@ -1,17 +1,18 @@
-import { useState } from 'react';
 import { Image, View, Text, StyleSheet } from 'react-native';
 import uuid from 'react-native-uuid';
 
 const DEFAULT_AVATAR = require('./assets/default_avatar.png')
 
-/** Section of messages from the same user 
+/** Section of messages from the same user
  * 
-*/
+ * props: avatar, name, messages
+ * state: N/A
+ * 
+ * MessageArea -> MessageCards -> N/A
+ */
 
 function MessageCards({avatar=DEFAULT_AVATAR, name, messages}){
   let currTime = _addZero(new Date().getHours()) + " : " + _addZero(new Date().getMinutes());
-
-  // const [messages, setMessages] = useState(messages);
 
   return (
     <View style={styles.container}>
@@ -64,6 +65,7 @@ const styles = StyleSheet.create({
   }
 })
 
+/** Add zero in front of single digit numbers */
 function _addZero(i) {
   if (i < 10) i = "0" + i;
   return i;

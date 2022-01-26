@@ -1,11 +1,16 @@
-/**
- * Component for chat input
- */
-
 import { View, Button, StyleSheet } from "react-native";
+import {useState} from "react";
+
 import ChatForm from "./ChatForm";
-import {useState, useEffect} from "react";
 import GifWindow from "./GifWindow";
+
+/** Component for chat input
+ * 
+ * props: receiveMessage fn
+ * state: needGIFWindow
+ * 
+ * App -> ChatInput -> {GifWindow, ChatForm}
+ */
 
 function ChatInput({receiveMessage}){
   const [needGIFWindow, setNeedGIFWindow] = useState(false);

@@ -5,7 +5,7 @@ import { Text, View, StyleSheet } from "react-native";
  * props: title
  * state: none
  * 
- * App -> Chat Title
+ * App -> Chat Title -> N/A
 */
 
 function ChatTitle({title}){

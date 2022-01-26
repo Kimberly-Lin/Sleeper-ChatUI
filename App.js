@@ -3,10 +3,11 @@ import { ScrollView,
   StyleSheet, 
   View, 
   KeyboardAvoidingView } from 'react-native';
+import { useState, useEffect} from 'react';
+
 import ChatInput from './ChatInput';
 import ChatTitle from './ChatTitle';
 import MessageArea from './MessageArea';
-import { useState, useEffect} from 'react';
 
 const USERS = {
   "rhea":{
@@ -25,6 +26,14 @@ const USERS = {
 
 //this could be old messages saved in the database for the chat
 const initialMessages=[];
+
+/** Renders chat application
+ * 
+ * props: N/A
+ * state: messageBlocks, lastUser
+ * 
+ * App -> {ChatTitle, MessageArea, ChatInput}
+ */
 
 function App() {
   const [messageBlocks, setMessageBlocks] = useState(initialMessages);
@@ -72,7 +81,7 @@ function App() {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView>
         <ChatTitle title='Sleeper Chat'/>
-        <ScrollView style={styles.messageBox}>
+        <ScrollView style={styles.messageBox } >
           <MessageArea messageBlocks={messageBlocks}/>
         </ScrollView>
         <View style={styles.chatInput}>
