@@ -10,27 +10,29 @@ import GifWindow from "./GifWindow";
 function ChatInput({submitNewMessage}){
   const [needGIFWindow, setNeedGIFWindow] = useState(false);
 
-  console.log({needGIFWindow})
-
   function handleGIFButton(){
     setNeedGIFWindow(true);
   }
 
   return (
-    <View style={styles.container}>
+    <View style={styles.outerContainer}>
       {needGIFWindow
         ? <GifWindow submitNewMessage={submitNewMessage}/>
         : null}
-      <ChatForm submitNewMessage={submitNewMessage}/>
-      <Button style={styles.GIFButton} title="GIF" onPress={handleGIFButton}></Button>
+      <View style={styles.container}>
+        <ChatForm submitNewMessage={submitNewMessage}/>
+        <Button style={styles.GIFButton} title="GIF" onPress={handleGIFButton}></Button>
+      </View>
     </View>
   )
 }
 
 const styles= StyleSheet.create({
+  outerContainer:{
+    backgroundColor: '#ffff',
+  },
   container:{
-    // flex:1,
-    // flexDirection: "row",
+    flexDirection: "row",
     marginLeft:10,
     marginRight:10,
     marginTop:5,

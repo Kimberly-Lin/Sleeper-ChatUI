@@ -41,7 +41,8 @@ const styles = StyleSheet.create({
     height: 50,
   },
   messageBox:{
-    backgroundColor: '#ffff'
+    backgroundColor: '#ffff',
+    height: 300,
   },
   chatInput:{
     backgroundColor: '#ffff',
