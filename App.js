@@ -48,10 +48,23 @@ function App() {
     }
   }
 
-  //Mocking other user messages
+  //Mocking 4 other user messages interval is randomly set from 0-5secs after the previous message
   useEffect(() => {
-    const timer = setTimeout(() => 
+    const timer1 = setTimeout(() => {
       receiveMessage('mockUser1','randomwords')
+      const timer2 = setTimeout(() => {
+        receiveMessage('mockUser2','randomwords1')
+        const timer3 = setTimeout(() => {
+          receiveMessage('mockUser1','randomwords2')
+          const timer4 = setTimeout(() => {
+            receiveMessage('mockUser2','randomwords3')
+          }
+    , Math.floor(Math.random()*5000));
+        }
+    , Math.floor(Math.random()*5000));
+      }
+    , Math.floor(Math.random()*5000));
+    }
     , Math.floor(Math.random()*5000));
   }, []);
 
