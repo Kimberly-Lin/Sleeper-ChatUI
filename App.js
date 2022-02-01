@@ -79,7 +79,7 @@ function App() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <KeyboardAvoidingView>
+      <KeyboardAvoidingView behavior='padding' style={{flex:1}}>
         <ChatTitle title='Sleeper Chat'/>
         <ScrollView style={styles.messageBox } >
           <MessageArea messageBlocks={messageBlocks}/>
