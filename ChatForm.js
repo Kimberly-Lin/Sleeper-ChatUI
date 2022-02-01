@@ -24,7 +24,7 @@ function ChatForm({receiveMessage}){
     <View style={styles.container}>
       <View style={{width:270, marginBottom:5}}>
         <TextInput
-        style={styles.textInput, {height: textBoxHeight}}
+        style={{height: textBoxHeight}}
         autoCapitalize='sentences' 
         multiline={true} 
         placeholder="Message Group"
