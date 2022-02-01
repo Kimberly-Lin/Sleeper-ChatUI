@@ -1,4 +1,4 @@
-import { View, Button, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import {useState} from "react";
 
 import ChatForm from "./ChatForm";
@@ -31,7 +31,9 @@ function ChatInput({receiveMessage}){
         : null}
       <View style={styles.container}>
         <ChatForm receiveMessage={receiveMessage}/>
-        <Button style={styles.GIFButton} title="GIF" onPress={handleGIFButton}></Button>
+        <TouchableOpacity style={styles.GIFButton} title="GIF" onPress={handleGIFButton}>
+          <Text>GIF</Text>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -42,16 +44,20 @@ const styles= StyleSheet.create({
     backgroundColor: '#ffff',
     borderTopWidth: 1,
     borderTopColor: 'grey',
-    paddingTop: 10, 
   },
   container:{
     flexDirection: "row",
-    marginLeft:10,
-    marginBottom:5,
+    marginLeft: 10,
+    marginBottom: 5,
+    marginTop: 5,
   },
   GIFButton: {
-    width:100,
-    alignSelf: "center",
+    alignSelf: "flex-start",
+    borderWidth: 1,
+    padding: 3,
+    paddingLeft: 8,
+    paddingRight: 8,
+    borderRadius: 3
   },
 });
 

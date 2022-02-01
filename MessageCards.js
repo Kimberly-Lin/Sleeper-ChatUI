@@ -36,7 +36,9 @@ function MessageCards({avatar=DEFAULT_AVATAR, name, messages}){
 
 const styles = StyleSheet.create({
   container:{
-    margin: 10,
+    marginLeft: 10,
+    // marginBottom: 5,
+    marginTop: 10,
     marginRight: 40,
     flexDirection:'row',
   },
@@ -67,6 +69,7 @@ const styles = StyleSheet.create({
   messages:{
     marginLeft: 5,
     marginRight: 5,
+    paddingRight: 10,
   },
   message:{
     fontSize:15,

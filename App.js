@@ -1,7 +1,6 @@
-import { ScrollView, 
+import {
   SafeAreaView,
   StyleSheet, 
-  View, 
   KeyboardAvoidingView } from 'react-native';
 import { useState, useEffect} from 'react';
 
@@ -81,12 +80,8 @@ function App() {
     <SafeAreaView style={styles.container}>
       <KeyboardAvoidingView behavior='padding' style={{flex:1}}>
         <ChatTitle title='Sleeper Chat'/>
-        <ScrollView style={styles.messageBox } >
-          <MessageArea messageBlocks={messageBlocks}/>
-        </ScrollView>
-        <View style={styles.chatInput}>
-          <ChatInput receiveMessage={receiveMessage}/>
-        </View>
+        <MessageArea messageBlocks={messageBlocks}/>
+        <ChatInput receiveMessage={receiveMessage}/>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -97,19 +92,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'pink',
   },
-  chatTitle: {
-    backgroundColor: 'pink',
-    height: 50,
-  },
-  messageBox:{
-    backgroundColor: '#ffff',
-    height: 300,
-  },
-  chatInput:{
-    backgroundColor: '#ffff',
-    borderColor: 'black',
-    height:50,
-  }
 });
 
 export default App;
