@@ -50,10 +50,12 @@ function GifWindow({submitGif}){
 const styles=StyleSheet.create({
   container:{
     height:100,
+    backgroundColor: '#ffff',
   }, 
   image:{
-    borderColor:'black',
-    borderWidth:1,
+    padding: 10,
+    borderColor: '#ffff',
+    borderWidth: 10,
     height:100,
     width:100,
   }

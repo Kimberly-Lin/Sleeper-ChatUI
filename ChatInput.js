@@ -40,16 +40,17 @@ function ChatInput({receiveMessage}){
 const styles= StyleSheet.create({
   outerContainer:{
     backgroundColor: '#ffff',
+    borderTopWidth: 1,
+    borderTopColor: 'grey',
+    paddingTop: 10, 
   },
   container:{
     flexDirection: "row",
     marginLeft:10,
-    marginRight:10,
-    marginTop:5,
     marginBottom:5,
   },
   GIFButton: {
-    width:10,
+    width:100,
     alignSelf: "center",
   },
 });

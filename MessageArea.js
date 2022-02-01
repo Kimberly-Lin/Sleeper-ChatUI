@@ -53,7 +53,6 @@ function MessageArea({messageBlocks}){
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffff',
-    height: 300,
   },
 });
 

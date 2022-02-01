@@ -1,7 +1,7 @@
 import { Image, View, Text, StyleSheet } from 'react-native';
 import uuid from 'react-native-uuid';
 
-const DEFAULT_AVATAR = require('./assets/default_avatar.png')
+const DEFAULT_AVATAR = require('./assets/default_avatar.jpeg')
 
 /** Section of messages from the same user
  * 
@@ -16,16 +16,20 @@ function MessageCards({avatar=DEFAULT_AVATAR, name, messages}){
 
   return (
     <View style={styles.container}>
-      <View style={styles.header}>
-        <Image source={avatar} style={styles.avatar}></Image>
-        <Text style = {styles.name}>{name}</Text>
-        <Text style={styles.timestamp}>{currTime}</Text>
-      </View>
-      {messages.map((message)=>
-        (message.slice(0,3)==="gif" 
+      <Image source={avatar} style={styles.avatar}></Image>
+      <View>
+        <View style={styles.header}>
+          <Text style = {styles.name}>{name}</Text>
+          <Text style={styles.timestamp}>{currTime}</Text>
+        </View>
+        <View style={styles.messages}>
+        {messages.map((message)=>
+          (message.slice(0,3)==="gif" 
           ? <Image style={styles.gif} source={{uri:message.slice(3)}} key={uuid.v4()}/> 
           : <Text style={styles.message} key={uuid.v4()}>{message}</Text>
-        ))}
+          ))}
+        </View>
+      </View>
     </View>
   )
 }
@@ -33,31 +37,40 @@ function MessageCards({avatar=DEFAULT_AVATAR, name, messages}){
 const styles = StyleSheet.create({
   container:{
     margin: 10,
+    marginRight: 40,
+    flexDirection:'row',
   },
   header:{
     flex:1,
     flexDirection:'row',
-    margin: 5,
+    padding: 3,
   },
   avatar:{
-    height: 60,
-    width: 60,
-    borderRadius: 50,
+    margin: 5,
+    height: 40,
+    width: 40,
+    borderRadius: 10,
   },
   name:{
-    fontSize:30,
+    fontSize:15,
     fontWeight: "bold",
-    alignSelf:'flex-end',
-    marginLeft: 10,
+    alignSelf:'flex-start',
+    marginLeft: 2,
   },
   timestamp:{
-    fontSize:15,
+    fontSize:10,
     alignSelf:'flex-end',
-    marginLeft: 10,
-    paddingBottom: 5,
+    color: 'grey',
+    marginLeft: 5,
+    marginBottom: 2,
+  },
+  messages:{
+    marginLeft: 5,
+    marginRight: 5,
   },
   message:{
-    fontSize:25,
+    fontSize:15,
+    marginBottom: 8,
   },
   gif:{
     height:100,
