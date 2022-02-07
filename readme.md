@@ -38,8 +38,6 @@ this is an issue since an actual message starting with gif will not be sent as
 a regular message
 - Currently, the timestamp for all messages get reset to current time when it is rerendered,
 need to store the value in messageBlock state objects and display accordingly
-- Reorganize views in App so that components are not wrapped in View & ScrollViews. Styles will be
-modified accordingly.
-- KeyboardAvoidView does not work properly right now. Application does not resize when keyboard is 
-open
+- Find a way to prevent the whole messageBlock to rerender when a new message is sent
+- GIF window to have swipe away
 - Ensure application works on Android
